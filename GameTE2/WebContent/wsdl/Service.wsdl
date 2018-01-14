@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Connection" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Connection" xmlns:intf="http://Connection" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Connection" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="signUp">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="pwd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUpResponse">
+    <complexType>
+     <sequence>
+      <element name="signUpReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="gamer">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="s" type="xsd:string"/>
+      <element name="l" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="gamerResponse">
+    <complexType>
+     <sequence>
+      <element name="gamerReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findOpponent">
+    <complexType>
+     <sequence>
+      <element name="curr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findOpponentResponse">
+    <complexType>
+     <sequence>
+      <element name="findOpponentReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="gamerRequest">
+
+      <wsdl:part element="impl:gamer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpResponse">
+
+      <wsdl:part element="impl:signUpResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findOpponentResponse">
+
+      <wsdl:part element="impl:findOpponentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="gamerResponse">
+
+      <wsdl:part element="impl:gamerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpRequest">
+
+      <wsdl:part element="impl:signUp" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findOpponentRequest">
+
+      <wsdl:part element="impl:findOpponent" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Service">
+
+      <wsdl:operation name="signUp">
+
+         <wsdl:input message="impl:signUpRequest" name="signUpRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signUpResponse" name="signUpResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="gamer">
+
+         <wsdl:input message="impl:gamerRequest" name="gamerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:gamerResponse" name="gamerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findOpponent">
+
+         <wsdl:input message="impl:findOpponentRequest" name="findOpponentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findOpponentResponse" name="findOpponentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiceSoapBinding" type="impl:Service">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="signUp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signUpRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signUpResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="gamer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="gamerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="gamerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findOpponent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findOpponentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findOpponentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiceService">
+
+      <wsdl:port binding="impl:ServiceSoapBinding" name="Service">
+
+         <wsdlsoap:address location="http://localhost:8080/GameTE2/services/Service"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
